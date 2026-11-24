@@ -12,6 +12,9 @@ A data-driven **digital twin for turbofan predictive maintenance**. An **LSTM** 
 ```
 Pick an engine, inject sensor drift at any cycle, and watch the twin's RUL estimate, health state, drift score and Page-Hinkley alarm update live. You can switch between model versions v1, v2 and v3, and the *Experiment results* tab shows all metrics and graphs. On first use the app offers to download the dataset (~12 MB).
 
+![Interactive demo: drift injected at cycle 40 on engine 31](results/graphs/demo_app.jpg)
+*Engine 31 with a sensor bias injected at cycle 40. The Page-Hinkley monitor raises the alarm 6 cycles later (red line), while the original model v1 misreads the bias as engine wear and its RUL estimate collapses.*
+
 ---
 
 ## 1. Problem statement
