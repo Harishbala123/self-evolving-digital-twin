@@ -1,0 +1,113 @@
+{
+  "FD001 test (clean)": {
+    "engines": 100,
+    "alarm_rate": 0.0,
+    "alarm_cycle_median": null
+  },
+  "FD001 test + step bias": {
+    "engines": 86,
+    "alarm_rate": 1.0,
+    "detection_rate": 1.0,
+    "false_alarm_before_drift_rate": 0.0,
+    "delay_mean": 7.965116279069767,
+    "delay_median": 7.0,
+    "delay_p25": 6.0,
+    "delay_p75": 9.0
+  },
+  "FD001 test + ramp bias": {
+    "engines": 86,
+    "alarm_rate": 1.0,
+    "detection_rate": 1.0,
+    "false_alarm_before_drift_rate": 0.0,
+    "delay_mean": 19.686046511627907,
+    "delay_median": 19.0,
+    "delay_p25": 18.0,
+    "delay_p75": 21.0
+  },
+  "FD003 test (new fault mode)": {
+    "engines": 100,
+    "alarm_rate": 0.39,
+    "alarm_cycle_median": 16.0
+  },
+  "monitor": {
+    "reference_score": 1.1307695185567523,
+    "ph_delta": 4.0,
+    "ph_threshold": 3.0,
+    "offset_sensors": [
+      "s3",
+      "s4",
+      "s9",
+      "s14"
+    ],
+    "offset_sigma": 3.0,
+    "injection_cycle": 40
+  },
+  "retraining": [
+    {
+      "scenario": "A: sensor bias",
+      "eval_set": "FD001 test + bias",
+      "model": "v1 (before)",
+      "rmse": 72.30057892230377,
+      "mae": 63.38158308982849,
+      "r2": -2.2551712470052947,
+      "nasa_score": 100361.96690253916,
+      "mean_error": -63.38158308982849,
+      "n": 100
+    },
+    {
+      "scenario": "A: sensor bias",
+      "eval_set": "FD001 test + bias",
+      "model": "v2 (after)",
+      "rmse": 13.157174598235766,
+      "mae": 10.162998323440553,
+      "r2": 0.8922007927749578,
+      "nasa_score": 293.62002603507676,
+      "mean_error": 2.556797742843628,
+      "n": 100
+    },
+    {
+      "scenario": "B: new fault mode",
+      "eval_set": "FD003 test",
+      "model": "v1 (before)",
+      "rmse": 44.635154417339635,
+      "mae": 28.64917254447937,
+      "r2": -0.2987743600316104,
+      "nasa_score": 380179.8618795578,
+      "mean_error": 24.588435316085814,
+      "n": 100
+    },
+    {
+      "scenario": "B: new fault mode",
+      "eval_set": "FD003 test",
+      "model": "v3 (after)",
+      "rmse": 15.376413642211455,
+      "mae": 10.290240869522094,
+      "r2": 0.8458690943935299,
+      "nasa_score": 1224.8787646629814,
+      "mean_error": 2.5679469776153563,
+      "n": 100
+    },
+    {
+      "scenario": "B: new fault mode",
+      "eval_set": "FD001 test (forgetting check)",
+      "model": "v1 (before)",
+      "rmse": 14.182635737354659,
+      "mae": 10.716652498245239,
+      "r2": 0.8747423704268942,
+      "nasa_score": 381.1643654616345,
+      "mean_error": 4.5749424457550045,
+      "n": 100
+    },
+    {
+      "scenario": "B: new fault mode",
+      "eval_set": "FD001 test (forgetting check)",
+      "model": "v3 (after)",
+      "rmse": 14.196486250869397,
+      "mae": 10.646327109336854,
+      "r2": 0.8744976021551443,
+      "nasa_score": 387.73258935458784,
+      "mean_error": 3.939354214668274,
+      "n": 100
+    }
+  ]
+}

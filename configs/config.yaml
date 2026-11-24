@@ -1,0 +1,40 @@
+# Self-Evolving Digital Twin: experiment configuration
+seed: 42
+
+data:
+  raw_dir: data/raw
+  subset: FD001            # C-MAPSS sub-dataset used for the base model
+  drift_subset: FD003      # sub-dataset used as a real "new fault mode" concept-drift source
+  url: "https://phm-datasets.s3.amazonaws.com/NASA/6.+Turbofan+Engine+Degradation+Simulation+Data+Set.zip"
+
+preprocessing:
+  rul_cap: 125             # piece-wise linear RUL target (standard for C-MAPSS)
+  window: 30               # sliding-window length (cycles)
+  min_std: 0.01            # sensors whose within-condition train std is below this are dropped (near-constant)
+  smoothing_alpha: 0.3     # causal exponential smoothing per engine (feature engineering); null disables it
+  val_fraction: 0.2        # fraction of training ENGINES kept for validation (split by engine, not by row)
+
+model:
+  lstm_units: [64, 32]
+  dense_units: 16
+  dropout: 0.2
+  learning_rate: 0.001
+
+training:
+  epochs: 80
+  batch_size: 256
+  patience: 12
+
+drift:
+  injection_cycle: 40          # cycle at which drift is injected in each engine of the drift scenario
+  offset_sigma: 3.0            # sensor-bias magnitude, in units of each sensor's residual noise std
+  offset_sensors: [s3, s4, s9, s14]   # sensors affected by a simulated calibration bias
+  page_hinkley_delta: 0.5
+  page_hinkley_threshold: 25.0
+  adwin_delta: 0.002
+  engines_for_trigger: 3       # input-drift alarms from this many engines trigger retraining
+  finetune_epochs: 25
+
+paths:
+  models_dir: models
+  results_dir: results

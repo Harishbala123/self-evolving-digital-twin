@@ -1,0 +1,90 @@
+﻿python.exe : WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+At line:1 char:499
++ ... |skipping"; & .\.venv\Scripts\python.exe scripts\train.py *> results\ ...
++                 ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+    + CategoryInfo          : NotSpecified: (WARNING: All lo...itten to STDERR:String) [], RemoteException
+    + FullyQualifiedErrorId : NativeCommandError
+ 
+I0000 00:00:1795518698.416672   15564 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+WARNING: All log messages before absl::InitializeLog() is called are written to STDERR
+I0000 00:00:1795518704.674779   15564 port.cc:153] oneDNN custom operations are on. You may see slightly different 
+numerical results due to floating-point round-off errors from different computation orders. To turn them off, set the 
+environment variable `TF_ENABLE_ONEDNN_OPTS=0`.
+16:41:49 | INFO | src.training.train | Selected 14 features: ['s2', 's3', 's4', 's7', 's8', 's9', 's11', 's12', 's13', 
+'s14', 's15', 's17', 's20', 's21']
+16:41:49 | INFO | src.training.train | Train windows (14459, 30, 14) | val windows (3272, 30, 14) (engines 80/20)
+WARNING:tensorflow:TensorFlow GPU support is not available on native Windows for TensorFlow >= 2.11. Even if 
+CUDA/cuDNN are installed, GPU will not be used. Please use WSL2 or the TensorFlow-DirectML plugin.
+16:41:49 | INFO | src.training.train | Model: "rul_lstm"
+┌─────────────────────────────────┬────────────────────────┬───────────────┐
+│ Layer (type)                    │ Output Shape           │       Param # │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ sensor_window (InputLayer)      │ (None, 30, 14)         │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ lstm_1 (LSTM)                   │ (None, 30, 64)         │        20,224 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_1 (Dropout)             │ (None, 30, 64)         │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ lstm_2 (LSTM)                   │ (None, 32)             │        12,416 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dropout_2 (Dropout)             │ (None, 32)             │             0 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ dense (Dense)                   │ (None, 16)             │           528 │
+├─────────────────────────────────┼────────────────────────┼───────────────┤
+│ rul (Dense)                     │ (None, 1)              │            17 │
+└─────────────────────────────────┴────────────────────────┴───────────────┘
+ Total params: 33,185 (129.63 KB)
+ Trainable params: 33,185 (129.63 KB)
+ Non-trainable params: 0 (0.00 B)
+
+Epoch 1/80
+57/57 - 9s - 149ms/step - loss: 7979.1558 - mae: 79.0629 - rmse: 89.3261 - val_loss: 6779.3350 - val_mae: 71.5982 - val_rmse: 82.3367 - learning_rate: 0.0010
+Epoch 2/80
+57/57 - 4s - 69ms/step - loss: 6995.3838 - mae: 73.0512 - rmse: 83.6384 - val_loss: 5788.8271 - val_mae: 64.9211 - val_rmse: 76.0843 - learning_rate: 0.0010
+Epoch 3/80
+57/57 - 4s - 66ms/step - loss: 5830.7476 - mae: 65.3992 - rmse: 76.3593 - val_loss: 4656.3389 - val_mae: 56.8064 - val_rmse: 68.2374 - learning_rate: 0.0010
+Epoch 4/80
+57/57 - 4s - 67ms/step - loss: 4658.9805 - mae: 57.3351 - rmse: 68.2567 - val_loss: 3591.8667 - val_mae: 48.7100 - val_rmse: 59.9322 - learning_rate: 0.0010
+Epoch 5/80
+57/57 - 4s - 64ms/step - loss: 3522.3154 - mae: 48.8967 - rmse: 59.3491 - val_loss: 2561.6895 - val_mae: 40.1914 - val_rmse: 50.6131 - learning_rate: 0.0010
+Epoch 6/80
+57/57 - 3s - 61ms/step - loss: 2439.5986 - mae: 39.9240 - rmse: 49.3923 - val_loss: 1657.8439 - val_mae: 31.6061 - val_rmse: 40.7166 - learning_rate: 0.0010
+Epoch 7/80
+57/57 - 4s - 62ms/step - loss: 1520.3650 - mae: 30.9226 - rmse: 38.9919 - val_loss: 939.5945 - val_mae: 23.7852 - val_rmse: 30.6528 - learning_rate: 0.0010
+Epoch 8/80
+57/57 - 3s - 61ms/step - loss: 828.8328 - mae: 22.7564 - rmse: 28.7895 - val_loss: 482.9167 - val_mae: 17.2348 - val_rmse: 21.9754 - learning_rate: 0.0010
+Epoch 9/80
+57/57 - 3s - 60ms/step - loss: 453.0368 - mae: 17.1192 - rmse: 21.2847 - val_loss: 307.0523 - val_mae: 14.1197 - val_rmse: 17.5229 - learning_rate: 0.0010
+Epoch 10/80
+57/57 - 3s - 60ms/step - loss: 301.9983 - mae: 13.7659 - rmse: 17.3781 - val_loss: 219.0041 - val_mae: 11.8201 - val_rmse: 14.7988 - learning_rate: 0.0010
+Epoch 11/80
+57/57 - 3s - 60ms/step - loss: 242.2784 - mae: 12.0015 - rmse: 15.5653 - val_loss: 206.0093 - val_mae: 10.9189 - val_rmse: 14.3530 - learning_rate: 0.0010
+Epoch 12/80
+57/57 - 3s - 61ms/step - loss: 208.1122 - mae: 10.9513 - rmse: 14.4261 - val_loss: 190.5006 - val_mae: 10.1913 - val_rmse: 13.8022 - learning_rate: 0.0010
+Epoch 13/80
+57/57 - 3s - 60ms/step - loss: 198.2164 - mae: 10.5460 - rmse: 14.0789 - val_loss: 193.0133 - val_mae: 10.0562 - val_rmse: 13.8929 - learning_rate: 0.0010
+Epoch 14/80
+57/57 - 3s - 58ms/step - loss: 185.0873 - mae: 10.1877 - rmse: 13.6047 - val_loss: 200.7516 - val_mae: 9.8338 - val_rmse: 14.1687 - learning_rate: 0.0010
+Epoch 15/80
+57/57 - 3s - 59ms/step - loss: 178.8354 - mae: 10.0162 - rmse: 13.3729 - val_loss: 201.2351 - val_mae: 9.7438 - val_rmse: 14.1857 - learning_rate: 0.0010
+Epoch 16/80
+57/57 - 3s - 60ms/step - loss: 167.2832 - mae: 9.6660 - rmse: 12.9338 - val_loss: 210.8385 - val_mae: 9.9655 - val_rmse: 14.5203 - learning_rate: 0.0010
+Epoch 17/80
+57/57 - 4s - 61ms/step - loss: 158.8558 - mae: 9.3569 - rmse: 12.6038 - val_loss: 194.9694 - val_mae: 9.5680 - val_rmse: 13.9631 - learning_rate: 5.0000e-04
+Epoch 18/80
+57/57 - 3s - 60ms/step - loss: 154.8370 - mae: 9.3002 - rmse: 12.4433 - val_loss: 191.4120 - val_mae: 9.4641 - val_rmse: 13.8352 - learning_rate: 5.0000e-04
+Epoch 19/80
+57/57 - 3s - 60ms/step - loss: 150.5041 - mae: 9.1312 - rmse: 12.2680 - val_loss: 200.2176 - val_mae: 9.5820 - val_rmse: 14.1498 - learning_rate: 5.0000e-04
+Epoch 20/80
+57/57 - 4s - 62ms/step - loss: 149.3008 - mae: 9.0839 - rmse: 12.2189 - val_loss: 203.2113 - val_mae: 9.6329 - val_rmse: 14.2552 - learning_rate: 5.0000e-04
+Epoch 21/80
+57/57 - 4s - 62ms/step - loss: 140.5345 - mae: 8.8140 - rmse: 11.8547 - val_loss: 217.2447 - val_mae: 9.7903 - val_rmse: 14.7392 - learning_rate: 2.5000e-04
+Epoch 22/80
+57/57 - 3s - 61ms/step - loss: 136.5752 - mae: 8.7505 - rmse: 11.6865 - val_loss: 215.1134 - val_mae: 9.8064 - val_rmse: 14.6667 - learning_rate: 2.5000e-04
+Epoch 23/80
+57/57 - 3s - 61ms/step - loss: 136.9172 - mae: 8.7080 - rmse: 11.7012 - val_loss: 220.4655 - val_mae: 9.8998 - val_rmse: 14.8481 - learning_rate: 2.5000e-04
+Epoch 24/80
+57/57 - 3s - 61ms/step - loss: 134.7915 - mae: 8.6268 - rmse: 11.6100 - val_loss: 216.7878 - val_mae: 9.8083 - val_rmse: 14.7237 - learning_rate: 2.5000e-04
+16:43:19 | INFO | src.training.train | Training finished in 89.4s, best val RMSE 13.80

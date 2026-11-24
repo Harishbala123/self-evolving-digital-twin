@@ -1,0 +1,17 @@
+step,event,model_version,new_version,engine,alarm_cycle,injected_at,detection_delay_cycles,reason,regime,candidate,val_rmse_old,val_rmse_new
+0,model_deployed,v1,v1,,,,,,,,,
+31,input_drift_alarm,v1,,FD001b-66,46.0,40.0,6.0,,,,,
+32,input_drift_alarm,v1,,FD001b-8,50.0,40.0,10.0,,,,,
+33,input_drift_alarm,v1,,FD001b-61,45.0,40.0,5.0,,,,,
+33,retrain_triggered,v1,,,,,,input drift alarms on 3 of the last 10 engines,sensor_bias,,,
+33,candidate_accepted,v1,,,,,,,,v2,77.50620105771314,13.376389503479004
+33,model_deployed,v1,v2,,,,,,,,,
+71,input_drift_alarm,v2,,FD003-7,5.0,,,,,,,
+72,input_drift_alarm,v2,,FD003-41,5.0,,,,,,,
+73,input_drift_alarm,v2,,FD003-8,5.0,,,,,,,
+73,retrain_triggered,v2,,,,,,input drift alarms on 3 of the last 10 engines,new_fault_mode,,,
+73,candidate_accepted,v2,,,,,,,,v3,38.673628882930835,13.536252975463867
+73,model_deployed,v2,v3,,,,,,,,,
+75,input_drift_alarm,v3,,FD003-39,5.0,,,,,,,
+82,input_drift_alarm,v3,,FD003-21,120.0,,,,,,,
+102,input_drift_alarm,v3,,FD003-30,18.0,,,,,,,

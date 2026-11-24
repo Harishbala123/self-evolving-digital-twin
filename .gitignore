@@ -1,0 +1,19 @@
+# Python
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.ipynb_checkpoints/
+# Environments
+.venv/
+venv/
+.env
+# Data (downloaded by scripts; never committed)
+data/raw/
+data/processed/
+# Large / intermediate model files (see models/README.md for how to obtain them)
+models/*_best.keras
+models/**/*.part
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
