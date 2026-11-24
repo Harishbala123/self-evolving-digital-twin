@@ -6,6 +6,12 @@ A data-driven **digital twin for turbofan predictive maintenance**. An **LSTM** 
 
 ![Fleet timeline](results/graphs/twin_fleet_timeline.png)
 
+## Interactive demo
+```powershell
+.\run_demo.bat              # or: streamlit run app.py   → http://localhost:8501
+```
+Pick an engine, inject sensor drift at any cycle, and watch the twin's RUL estimate, health state, drift score and Page-Hinkley alarm update live. You can switch between model versions v1, v2 and v3, and the *Experiment results* tab shows all metrics and graphs. On first use the app offers to download the dataset (~12 MB).
+
 ---
 
 ## 1. Problem statement
